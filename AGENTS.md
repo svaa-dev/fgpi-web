@@ -1,8 +1,8 @@
 ## Reglas
 
+- No utilices Browser Tools para comprobar el código, a que se te ordene.
 - Siempre genera una planificación previa.
 - Escribe los comentarios del código en español.
-- No generes manual ni plan de verificacióñ, yo lo comprobaré manualmente.
 
 ## Documentación
 
