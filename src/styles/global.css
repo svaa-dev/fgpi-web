@@ -21,3 +21,7 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
 }
+
+@utility wrapper {
+  @apply mx-auto max-w-5xl;
+}

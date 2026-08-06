@@ -1,10 +1,10 @@
-## Opciones
+## Reglas
 
 - Browser Tools: No lo utilices a menos que te lo pida.
-- Plan: Siempre genera una planificación previa para validar los pasos.
-- Comentarios: En español.
+- Siempre genera una planificación previa.
+- Escribe los comentarios del código en español.
 
-## Tecnologías / Documentación
+## Documentación
 
 - [Astro](https://docs.astro.build)
 - [Tailwind CSS](https://tailwindcss.com/)

@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css'
+import Header from '@/components/Header.astro'
 ---
 
 <!doctype html>
@@ -7,12 +8,19 @@ import '@/styles/global.css'
   <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width' />
-    <link rel='preload' href='/fonts/roboto-latin-wght-normal.woff2' as='font' type='font/woff2' crossorigin />
+    <link
+      rel='preload'
+      href='/fonts/roboto-latin-wght-normal.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <link rel='icon' href='/favicon.ico' />
     <title>Forte Glass Perú Import</title>
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
