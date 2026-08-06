@@ -3,20 +3,21 @@
 @font-face {
   font-family: 'roboto';
   src: url('/fonts/roboto-latin-wght-normal.woff2') format('woff2');
-  font-weight: 400;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --color-base: #f8f8f8;
-  --color-base-content: #18181b;
-  --color-brand: #ab1923;
-  --color-brand-content: #ffffff;
+  --font-sans: 'roboto', sans-serif;
+  --color-background: #ffffff;
+  --color-foreground: #18181b;
+  --color-primary: #ab1923;
+  --color-primary-foreground: #ffffff;
 }
 
 body {
-  background-color: var(--color-base);
-  color: var(--color-base-content);
-  font-family: 'roboto', sans-serif;
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
 }
