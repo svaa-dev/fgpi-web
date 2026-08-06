@@ -1,8 +1,8 @@
 ## Reglas
 
-- Browser Tools: No lo utilices a menos que te lo pida.
 - Siempre genera una planificación previa.
 - Escribe los comentarios del código en español.
+- No generes manual ni plan de verificacióñ, yo lo comprobaré manualmente.
 
 ## Documentación
 

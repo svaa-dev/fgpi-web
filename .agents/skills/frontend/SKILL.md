@@ -11,6 +11,14 @@ description: Skills para el desarrollo general del frontend del proyecto
 
 - Seleccionar imagenes e iconos de las carpetas `src/images` y `src/icons`
 
-- Extrae de `src/styles/global.css` los tokens de diseño.
+- Utiliza de `src/styles/global.css` los tokens de diseño (colores, fuentes, espaciado, etc.).
 
 - Crea las animaciones con @keyframes en `src/styles/global.css`.
+
+- No utilices iconos inline con svg raw, sino importa el icono desde la carpeta `src/icons`.
+
+- No repitas codigo en los componentes y estilos CSS. Crea listas u objetos para evitarlo.
+
+- Evita código genérico de IA.
+
+- Diseño responsivo adaptado a dispositivos moviles, tablet y desktop.

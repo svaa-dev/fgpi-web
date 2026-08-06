@@ -1,34 +1,83 @@
 ---
 import { Image } from 'astro:assets'
 import Logo from '@/images/logo.png'
-import Facebook from '@/icons/facebook.svg'
-import Instagram from '@/icons/instagram.svg'
-import Linkedin from '@/icons/linkedin.svg'
-import Tiktok from '@/icons/tiktok.svg'
+import Facebook from '@/icons/facebook'
+import Instagram from '@/icons/instagram'
+import Linkedin from '@/icons/linkedin'
+import Tiktok from '@/icons/tiktok'
 import SidebarButton from '@/components/sidebar-button'
+
+const navLinks = [
+  { href: '#', label: 'Inicio' },
+  { href: '#', label: 'Servicios' },
+  { href: '#', label: 'Autopartes & Accesorios' },
+  { href: '#', label: 'Baterías' },
+  { href: '#', label: 'Empresa' },
+  { href: '#', label: 'Contacto' },
+]
+
+const socialLinks = [
+  { href: '#', label: 'Facebook', icon: Facebook },
+  { href: '#', label: 'Instagram', icon: Instagram },
+  { href: '#', label: 'LinkedIn', icon: Linkedin },
+  { href: '#', label: 'TikTok', icon: Tiktok },
+]
 ---
 
-<header>
-  <div class='wrapper flex items-center justify-between'>
-    <Image src={Logo} alt='Logo' width={120} height={80} priority />
+<!-- Encabezado pegajoso con desenfoque de fondo premium -->
+<header
+  class='border-base-200 bg-base-100 sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-300'
+>
+  <div class='wrapper flex h-20 items-center justify-between'>
+    <!-- Logotipo principal -->
+    <a href='/' class='flex items-center transition-opacity hover:opacity-90'>
+      <Image
+        src={Logo}
+        alt='Forte Glass Perú Import Logo'
+        width={150}
+        height={100}
+        class='h-16 w-auto object-contain'
+        priority
+      />
+    </a>
 
-    <nav>
-      <a href='#'>Inicio</a>
-      <a href='#'>Servicios</a>
-      <a href='#'>Autopartes & Accesorios</a>
-      <a href='#'>Baterías</a>
-      <a href='#'>Empresa</a>
-      <a href='#'>Contacto</a>
+    <!-- Menú de navegación principal (Desktop) -->
+    <nav
+      class='hidden items-center gap-x-6 text-sm font-medium tracking-wide md:flex'
+    >
+      {
+        navLinks.map(link => (
+          <a
+            href={link.href}
+            class='text-base-content/80 hover:text-primary after:bg-primary relative py-2 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:w-full'
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
 
-    <div>
-      <Facebook />
-      <Instagram />
-      <Linkedin />
-      <Tiktok />
+    <!-- Enlaces a Redes Sociales (Desktop/Tablet) -->
+    <div class='items-center gap-x-4 flex md:hidden lg:flex'>
+      {
+        socialLinks.map(link => (
+          <a
+            href={link.href}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='text-base-content/60 hover:text-primary flex items-center justify-center transition-colors duration-200'
+            aria-label={link.label}
+          >
+            <link.icon className='size-7' />
+          </a>
+        ))
+      }
     </div>
 
-    <div class='md:hidden'>
+    <!-- Botón del menú lateral (Móvil) -->
+    <div
+      class='text-base-content/80 hover:text-primary [&_button]:hover:bg-base-200/50 flex items-center justify-center transition-colors duration-200 md:hidden [&_button]:rounded-md [&_button]:p-2 [&_svg]:h-6 [&_svg]:w-6'
+    >
       <SidebarButton />
     </div>
   </div>
