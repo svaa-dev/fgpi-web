@@ -43,7 +43,7 @@ const socialLinks = [
 
     <!-- Menú de navegación principal (Desktop) -->
     <nav
-      class='hidden items-center gap-x-6 text-sm font-medium tracking-wide md:flex'
+      class='hidden items-center gap-x-6 text-sm font-medium tracking-wide lg:flex'
     >
       {
         navLinks.map(link => (
@@ -58,7 +58,7 @@ const socialLinks = [
     </nav>
 
     <!-- Enlaces a Redes Sociales (Desktop/Tablet) -->
-    <div class='flex items-center gap-x-4 md:hidden lg:flex'>
+    <div class='hidden items-center gap-x-4 sm:flex'>
       {
         socialLinks.map(link => (
           <a
@@ -76,7 +76,7 @@ const socialLinks = [
 
     <!-- Botón del menú lateral (Móvil) -->
     <div
-      class='text-base-content/80 hover:text-primary flex items-center justify-center md:hidden'
+      class='text-base-content/80 hover:text-primary flex items-center justify-center lg:hidden'
     >
       <MobileMenu client:load />
     </div>
