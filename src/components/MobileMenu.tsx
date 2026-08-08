@@ -82,7 +82,7 @@ export default function MobileMenu() {
         </div>
 
         {/* Cuerpo del menú: Contenedor con scroll para los enlaces principales */}
-        <nav className='flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-6'>
+        <nav className='flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-6 uppercase'>
           {navLinks.map(link => {
             const Icon = link.icon
             // Resaltamos el enlace de 'Inicio' para fines ilustrativos de selección como en el diseño de referencia
