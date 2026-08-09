@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import HeroCars from '@/images/hero-cars.jpg'
 import HeroBrands from '@/images/hero-brands.png'
 import HeroWindshield from '@/images/hero-windshield.jpg'
-import ChevronRight from '@/icons/ChevronRight'
-import Button from '@/components/Button'
+import ChevronRight from '@/icons/chevron-right'
+import Button from '@/components/button'
 
 export default function Hero() {
   // Lista de imágenes de fondo importadas
