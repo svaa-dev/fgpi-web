@@ -1,34 +1,34 @@
 ---
 import Card from './Card.astro'
-import Windshields from '@/images/windshields.jpg'
-import Accessories from '@/images/accessories.jpeg'
-import AutoParts from '@/images/auto-parts.jpg'
-import Batteries from '@/images/batteries.jpg'
+import TransmissionSuspension from '@/images/transmission-suspension.jpg'
+import Accessories from '@/images/accessories.jpg'
+import BrakeClutch from '@/images/brake-clutch.jpg'
+import EngineParts from '@/images/engine-parts.jpg'
 
 // Datos de prueba para simular varios alojamientos en diferentes destinos
 const items = [
   {
-    imageSrc: Windshields,
-    title: 'Parabrisas',
-    description: 'Para vehículos livianos, pesados y especiales.',
+    imageSrc: TransmissionSuspension,
+    title: 'Transmisión y suspensión',
+    description: 'Amortiguación, transmisión, tren delantero.',
     href: '/servicios',
   },
   {
     imageSrc: Accessories,
     title: 'Accesorios',
-    description: 'Accesorios internos, para remolque, etc.',
+    description: 'Autopartes y accesorios.',
     href: '#',
   },
   {
-    imageSrc: AutoParts,
-    title: 'Autopartes',
-    description: 'Freno y embrague, partes del motor, accesorios.',
+    imageSrc: BrakeClutch,
+    title: 'Freno y embrague',
+    description: 'Embrague, disco de freno.',
     href: 'autopartes-accesorios',
   },
   {
-    imageSrc: Batteries,
-    title: 'Baterías',
-    description: 'Marcas: Etna, ACDelco, Rocket, Capsa, etc.',
+    imageSrc: EngineParts,
+    title: 'Partes del motor',
+    description: 'Kits de distribución.',
     href: '#',
   },
 ]
@@ -39,7 +39,7 @@ const items = [
     <h2
       class='text-base-content mb-8 text-center text-3xl font-light tracking-tight sm:text-4xl'
     >
-      PRODUCTOS DESTACADOS
+      AUTOPARTES Y ACCESORIOS
     </h2>
     <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4'>
       <!-- grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 -->

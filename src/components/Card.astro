@@ -1,68 +1,80 @@
 ---
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
+import ChevronRight from '@/icons/ChevronRight'
 
-// Importamos los comentarios en español de acuerdo a las reglas del proyecto.
+// Interfaz para definir las propiedades que recibe la tarjeta (Card).
+// Los comentarios están redactados en español según las reglas.
 interface Props {
-  imageSrc?: string | ImageMetadata // Imagen de fondo (Astro ImageMetadata o URL string de public/externa)
-  title?: string // Título del alojamiento
-  description?: string // Descripción breve del alojamiento
+  imageSrc?: string | ImageMetadata // Ruta o metadata de la imagen de fondo
+  title?: string // Título del producto o servicio
+  description?: string // Descripción breve del producto o servicio
+  href?: string // Enlace de la tarjeta
 }
 
 const {
   imageSrc = 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80',
-  title = 'Santorini Sunset Loft',
-  description = 'Experience a cliffside loft with iconic white walls, blue domes, and magical sunset views.',
+  title = 'Producto Forte Glass',
+  href = '/',
+  description = 'Descripción detallada de la categoría de productos automotrices de alta calidad.',
 } = Astro.props
 
 const isExternal = typeof imageSrc === 'string'
 ---
 
-<article
-  class='group relative flex aspect-[3/4.2] w-full max-w-sm flex-col overflow-hidden rounded-xl bg-neutral-800 p-6 font-sans text-white shadow-2xl'
+<a
+  class='group border-base-300/40 bg-base-100 hover:shadow-primary/5 relative flex w-full flex-col overflow-hidden rounded-2xl border font-sans shadow-md transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl'
+  href={href}
 >
-  {/* Imagen de fondo que ocupa la parte superior */}
-  {
-    isExternal ? (
-      <img
-        src={imageSrc as string}
-        alt={title}
-        class='absolute top-0 left-0 h-[65%] w-full object-cover transition-transform duration-500 group-hover:scale-105'
-        loading='lazy'
-      />
-    ) : (
-      <Image
-        src={imageSrc as ImageMetadata}
-        alt={title}
-        class='absolute top-0 left-0 h-[65%] w-full object-cover transition-transform duration-500 group-hover:scale-105'
-      />
-    )
-  }
-
-  {/* Capa de degradado superior para dar visibilidad al botón de bookmark */}
-  <div
-    class='absolute top-0 left-0 z-10 h-[25%] w-full bg-linear-to-b from-black/40 to-transparent'
-  >
-  </div>
-
-  {/* Capa de degradado inferior para fundir la imagen con el fondo oscuro */}
-  <div
-    class='absolute top-0 left-0 z-10 h-[65%] w-full bg-linear-to-b from-transparent via-[#222d3b]/40 to-[#222d3b]'
-  >
-  </div>
-
-  {/* Contenido de la tarjeta (Posicionado al fondo sobre el fondo oscuro) */}
-  <div class='relative z-20 mt-auto flex flex-col gap-3.5'>
-    {/* Fila de Título y Precio */}
-    <div class='flex items-start justify-between gap-4'>
-      <h2 class='text-2xl leading-tight font-bold tracking-tight text-white'>
-        {title}
-      </h2>
+  {/* Contenedor de la imagen con proporción fija de 4:3 */}
+  <div class='bg-base-200 relative aspect-4/3 w-full overflow-hidden'>
+    {
+      isExternal ? (
+        <img
+          src={imageSrc as string}
+          alt={title}
+          class='h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105'
+          loading='lazy'
+        />
+      ) : (
+        <Image
+          src={imageSrc as ImageMetadata}
+          alt={title}
+          class='h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105'
+        />
+      )
+    }
+    {/* Capa de degradado sutil al pasar el cursor */}
+    <div
+      class='absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100'
+    >
     </div>
+  </div>
 
-    {/* Descripción */}
-    <p class='text-xs leading-relaxed font-light text-white/70 md:text-sm'>
+  {/* Contenido de la tarjeta */}
+  <div class='flex flex-1 flex-col p-5'>
+    {/* Título del producto o servicio */}
+    <h3
+      class='group-hover:text-primary mb-2 text-xl font-bold tracking-tight text-neutral-800 transition-colors duration-300'
+    >
+      {title}
+    </h3>
+
+    {/* Descripción breve */}
+    <p
+      class='mb-4 grow text-xs leading-relaxed font-normal text-neutral-600 md:text-sm'
+    >
       {description}
     </p>
+
+    {/* Enlace/Indicador interactivo de Ver más */}
+    <div
+      class='text-primary/80 group-hover:text-primary mt-auto flex items-center gap-1.5 text-xs font-semibold transition-colors duration-300'
+    >
+      <span>Ver más</span>
+      <ChevronRight
+        className='size-3.5 transition-transform duration-300 group-hover:translate-x-1'
+      />
+    </div>
   </div>
-</article>
+</a>
