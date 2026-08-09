@@ -7,29 +7,29 @@ import CarParts from '@/icons/car-parts'
 import Battery from '@/icons/battery'
 import Company from '@/icons/company'
 import Contact from '@/icons/contact'
-
 import Facebook from '@/icons/facebook'
 import Instagram from '@/icons/instagram'
 import Linkedin from '@/icons/linkedin'
 import Tiktok from '@/icons/tiktok'
+import { LINKS, SEO } from '@/constants'
 
-// Lista de enlaces de navegación principal con sus respectivos iconos personalizados
-const navLinks = [
-  { href: '#', label: 'Inicio', icon: Home },
-  { href: '#', label: 'Servicios', icon: Services },
-  { href: '#', label: 'Autopartes & Accesorios', icon: CarParts },
-  { href: '#', label: 'Baterías', icon: Battery },
-  { href: '#', label: 'Empresa', icon: Company },
-  { href: '#', label: 'Contacto', icon: Contact },
-]
-
-// Lista de enlaces a redes sociales con sus iconos correspondientes
+// Lista de enlaces a redes sociales mapeados desde constantes globales
 const socialLinks = [
-  { href: '#', label: 'Facebook', icon: Facebook },
-  { href: '#', label: 'Instagram', icon: Instagram },
-  { href: '#', label: 'LinkedIn', icon: Linkedin },
-  { href: '#', label: 'TikTok', icon: Tiktok },
+  { href: SEO.facebook.href, label: SEO.facebook.label, icon: Facebook },
+  { href: SEO.instagram.href, label: SEO.instagram.label, icon: Instagram },
+  { href: SEO.linkedin.href, label: SEO.linkedin.label, icon: Linkedin },
+  { href: SEO.tiktok.href, label: SEO.tiktok.label, icon: Tiktok },
 ]
+
+const navLinks = [
+  { href: LINKS.home.href, label: LINKS.home.label, icon: Home },
+  { href: LINKS.services.href, label: LINKS.services.label, icon: Services },
+  { href: LINKS.autoparts_accessories.href, label: LINKS.autoparts_accessories.label, icon: CarParts },
+  { href: LINKS.batteries.href, label: LINKS.batteries.label, icon: Battery },
+  { href: LINKS.company.href, label: LINKS.company.label, icon: Company },
+  { href: LINKS.contact.href, label: LINKS.contact.label, icon: Contact },
+]
+
 export default function MobileMenu() {
   // Estado para controlar la apertura y el cierre del panel del menú lateral
   const [isOpen, setIsOpen] = useState(false)
@@ -39,7 +39,7 @@ export default function MobileMenu() {
       {/* Botón de activación (Hamburguesa) visible en pantallas móviles/tablets */}
       <button
         onClick={() => setIsOpen(true)}
-        className='hover:bg-base-200 flex cursor-pointer items-center justify-center rounded-lg p-2 transition-colors duration-200'
+        className='hover:bg-base-200 hover:text-primary flex cursor-pointer items-center justify-center rounded-lg p-2 transition-colors duration-200'
         aria-label='Abrir menú de navegación'
       >
         <Hamburger className='size-7' />
@@ -47,10 +47,8 @@ export default function MobileMenu() {
 
       {/* Overlay de fondo oscuro difuminado. Controla la visibilidad y transición de opacidad */}
       <div
-        className={`fixed inset-0 z-50 min-h-screen bg-black/45 backdrop-blur-xs transition-opacity duration-300 ${
-          isOpen
-            ? 'pointer-events-auto opacity-100'
-            : 'pointer-events-none opacity-0'
+        className={`fixed inset-0 z-50 min-h-screen bg-black/50 backdrop-blur-xs transition-opacity duration-300 ${
+          isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setIsOpen(false)}
       />
@@ -85,27 +83,14 @@ export default function MobileMenu() {
         <nav className='flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-6 uppercase'>
           {navLinks.map(link => {
             const Icon = link.icon
-            // Resaltamos el enlace de 'Inicio' para fines ilustrativos de selección como en el diseño de referencia
-            const isHighlighted = link.label === 'Inicio'
-
             return (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`group flex items-center gap-3.5 rounded-xl px-3 py-3 text-sm font-medium transition-all duration-200 ${
-                  isHighlighted
-                    ? 'bg-primary/5 text-primary'
-                    : 'text-base-content/75 hover:bg-base-200/50 hover:text-primary'
-                }`}
+                className='group hover:text-primary flex items-center gap-3.5 rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 hover:bg-neutral-300/40'
               >
-                <Icon
-                  className={`size-5 transition-transform duration-200 group-hover:scale-105 ${
-                    isHighlighted
-                      ? 'text-primary'
-                      : 'text-base-content/40 group-hover:text-primary'
-                  }`}
-                />
+                <Icon className='size-5 transition-transform duration-200' />
                 <span>{link.label}</span>
               </a>
             )

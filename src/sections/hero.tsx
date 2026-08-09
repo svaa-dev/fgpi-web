@@ -3,7 +3,7 @@ import HeroCars from '@/images/hero-cars.jpg'
 import HeroBrands from '@/images/hero-brands.png'
 import HeroWindshield from '@/images/hero-windshield.jpg'
 import ChevronRight from '@/icons/chevron-right'
-import Button from '@/components/button'
+import Button from '@/ui/button'
 
 export default function Hero() {
   // Lista de imágenes de fondo importadas
@@ -20,11 +20,11 @@ export default function Hero() {
   }, [imagenesFondo.length])
 
   // Función para retroceder a la imagen anterior
-  const anteriorImagen = useCallback(() => {
-    setIndiceActivo(
-      prev => (prev - 1 + imagenesFondo.length) % imagenesFondo.length,
-    )
-  }, [imagenesFondo.length])
+  // const anteriorImagen = useCallback(() => {
+  //   setIndiceActivo(
+  //     prev => (prev - 1 + imagenesFondo.length) % imagenesFondo.length,
+  //   )
+  // }, [imagenesFondo.length])
 
   // Gestionar el temporizador de reproducción automática
   useEffect(() => {
@@ -82,9 +82,7 @@ export default function Hero() {
             <div
               key={index}
               className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out ${
-                estaActivo
-                  ? 'pointer-events-auto z-10 opacity-100'
-                  : 'pointer-events-none z-0 opacity-0'
+                estaActivo ? 'pointer-events-auto z-10 opacity-100' : 'pointer-events-none z-0 opacity-0'
               }`}
             >
               {/* Imagen de fondo individual */}
@@ -119,9 +117,8 @@ export default function Hero() {
 
           {/* Breve descripción explicativa */}
           <p className='mb-6 text-sm leading-relaxed font-light text-white md:text-base'>
-            Todo lo que necesitas encuéntralo aquí en Forte Glass. Brindamos
-            soluciones en vidrios automotrices, autopartes y accesorios con la
-            máxima garantía y calidad.
+            Todo lo que necesitas encuéntralo aquí en Forte Glass. Brindamos soluciones en vidrios automotrices,
+            autopartes y accesorios con la máxima garantía y calidad.
           </p>
 
           {/* Botón de Llamada a la Acción (CTA) */}
@@ -167,9 +164,7 @@ export default function Hero() {
               key={index}
               onClick={() => manejarClickIndicador(index)}
               className={`h-2.5 rounded-full transition-all duration-300 ${
-                estaActivo
-                  ? 'bg-primary w-8'
-                  : 'w-2.5 cursor-pointer bg-white/40 hover:bg-white/70'
+                estaActivo ? 'bg-primary w-8' : 'w-2.5 cursor-pointer bg-white/40 hover:bg-white/70'
               }`}
               aria-label={`Ver imagen de fondo ${index + 1}`}
             />

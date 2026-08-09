@@ -4,13 +4,7 @@ interface Props {
 
 export default function Hamburger({ className = 'size-6' }: Props) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      width='1em'
-      height='1em'
-      viewBox='0 0 32 32'
-      className={className}
-    >
+    <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 32 32' className={className}>
       <path d='M0 0h32v32H0z' fill='none' />
       <path
         fill='none'
