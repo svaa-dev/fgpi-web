@@ -1,3 +1,44 @@
-<section>
-  <div class='wrapper'>Productos Destacados</div>
+---
+import Card from './Card.astro'
+import Windshields from '@/images/windshields.jpg'
+import Accessories from '@/images/accessories.jpeg'
+import AutoParts from '@/images/auto-parts.jpg'
+import Batteries from '@/images/batteries.jpg'
+
+// Datos de prueba para simular varios alojamientos en diferentes destinos
+const items = [
+  {
+    imageSrc: Windshields,
+    title: 'Parabrisas',
+    description: 'Para vehículos livianos, pesados y especiales.',
+  },
+  {
+    imageSrc: Accessories,
+    title: 'Accesorios',
+    description: 'Accesorios internos, para remolque, etc.',
+  },
+  {
+    imageSrc: AutoParts,
+    title: 'Autopartes',
+    description: 'Freno y embrague, partes del motor, accesorios.',
+  },
+  {
+    imageSrc: Batteries,
+    title: 'Baterías',
+    description: 'Marcas: Etna, ACDelco, Rocket, Capsa, etc.',
+  },
+]
+---
+
+<section class='py-12'>
+  <div class='wrapper'>
+    <h2 class='text-base-content mb-8 text-3xl font-bold tracking-tight'>
+      Productos Destacados
+    </h2>
+    <div
+      class='grid grid-cols-1 justify-items-center gap-8 md:grid-cols-2 xl:grid-cols-4'
+    >
+      {items.map(item => <Card {...item} />)}
+    </div>
+  </div>
 </section>

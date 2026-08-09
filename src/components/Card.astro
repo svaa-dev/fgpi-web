@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+
+// Importamos los comentarios en español de acuerdo a las reglas del proyecto.
+interface Props {
+  imageSrc?: string | ImageMetadata // Imagen de fondo (Astro ImageMetadata o URL string de public/externa)
+  title?: string // Título del alojamiento
+  description?: string // Descripción breve del alojamiento
+}
+
+const {
+  imageSrc = 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80',
+  title = 'Santorini Sunset Loft',
+  description = 'Experience a cliffside loft with iconic white walls, blue domes, and magical sunset views.',
+} = Astro.props
+
+const isExternal = typeof imageSrc === 'string'
+---
+
+<article
+  class='group relative flex aspect-[3/4.2] w-full max-w-sm flex-col overflow-hidden rounded-xl bg-neutral-800 p-6 font-sans text-white shadow-2xl'
+>
+  {/* Imagen de fondo que ocupa la parte superior */}
+  {
+    isExternal ? (
+      <img
+        src={imageSrc as string}
+        alt={title}
+        class='absolute top-0 left-0 h-[65%] w-full object-cover transition-transform duration-500 group-hover:scale-105'
+        loading='lazy'
+      />
+    ) : (
+      <Image
+        src={imageSrc as ImageMetadata}
+        alt={title}
+        class='absolute top-0 left-0 h-[65%] w-full object-cover transition-transform duration-500 group-hover:scale-105'
+      />
+    )
+  }
+
+  {/* Capa de degradado superior para dar visibilidad al botón de bookmark */}
+  <div
+    class='absolute top-0 left-0 z-10 h-[25%] w-full bg-linear-to-b from-black/40 to-transparent'
+  >
+  </div>
+
+  {/* Capa de degradado inferior para fundir la imagen con el fondo oscuro */}
+  <div
+    class='absolute top-0 left-0 z-10 h-[65%] w-full bg-linear-to-b from-transparent via-[#222d3b]/40 to-[#222d3b]'
+  >
+  </div>
+
+  {/* Contenido de la tarjeta (Posicionado al fondo sobre el fondo oscuro) */}
+  <div class='relative z-20 mt-auto flex flex-col gap-3.5'>
+    {/* Fila de Título y Precio */}
+    <div class='flex items-start justify-between gap-4'>
+      <h2 class='text-2xl leading-tight font-bold tracking-tight text-white'>
+        {title}
+      </h2>
+    </div>
+
+    {/* Descripción */}
+    <p class='text-xs leading-relaxed font-light text-white/70 md:text-sm'>
+      {description}
+    </p>
+  </div>
+</article>

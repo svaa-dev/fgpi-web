@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import HeroCars from '@/images/hero-cars.jpg'
 import HeroBrands from '@/images/hero-brands.png'
 import HeroWindshield from '@/images/hero-windshield.jpg'
+import ChevronRight from '@/icons/ChevronRight'
+import Button from '@/components/Button'
 
 export default function Hero() {
   // Lista de imágenes de fondo importadas
@@ -68,7 +70,7 @@ export default function Hero() {
 
   return (
     <section
-      className='relative h-145 w-full overflow-hidden bg-zinc-950 select-none md:h-170 lg:h-187.5'
+      className='relative h-145 w-full overflow-hidden bg-zinc-950 md:h-170 lg:h-187.5'
       onMouseEnter={() => setReproduciendo(false)}
       onMouseLeave={() => setReproduciendo(true)}
     >
@@ -89,7 +91,7 @@ export default function Hero() {
               <img
                 src={imagen}
                 alt={`Fondo Forte Glass ${index + 1}`}
-                className='absolute inset-0 h-full w-full transform object-cover transition-transform duration-5000 ease-out'
+                className='absolute inset-0 h-full w-full transform object-cover transition-transform duration-5000 ease-out select-none'
                 style={{
                   transform: estaActivo ? 'scale(1.0)' : 'scale(1.1)',
                 }}
@@ -103,32 +105,27 @@ export default function Hero() {
       </div>
 
       {/* Contenido textual estático e interactivo en primer plano (Fijo) */}
-      <div className='wrapper pointer-events-none relative z-20 flex h-full flex-col items-start justify-center'>
+      <div className='wrapper pointer-events-none relative z-20 flex h-full flex-col items-start justify-center text-center md:text-left'>
         <div className='pointer-events-auto max-w-2xl text-white'>
           {/* Etiqueta superior de la marca */}
-          <span className='text-primary mb-3 inline-block text-sm font-extrabold tracking-widest uppercase md:text-sm'>
+          <span className='text-primary mb-3 inline-block text-sm font-extrabold tracking-widest uppercase'>
             Forte Glass Perú Import
           </span>
 
           {/* Título de impacto principal */}
-          <h1 className='mb-4 text-4xl leading-none font-black tracking-tight uppercase md:text-6xl lg:text-7xl'>
+          <h1 className='mb-4 text-4xl leading-none font-black tracking-wide uppercase md:text-6xl lg:text-7xl'>
             ELEVA TU VIAJE
           </h1>
 
           {/* Breve descripción explicativa */}
-          <p className='mb-6 max-w-xs text-sm leading-relaxed font-light text-zinc-300 sm:max-w-lg md:mb-8 md:max-w-xl md:text-base lg:text-lg'>
+          <p className='mb-6 text-sm leading-relaxed font-light text-white md:text-base'>
             Todo lo que necesitas encuéntralo aquí en Forte Glass. Brindamos
             soluciones en vidrios automotrices, autopartes y accesorios con la
             máxima garantía y calidad.
           </p>
 
           {/* Botón de Llamada a la Acción (CTA) */}
-          <a
-            href='#contacto'
-            className='bg-primary hover:bg-primary/90 text-primary-content inline-flex items-center justify-center rounded-lg border border-transparent px-6 py-2 text-sm font-bold tracking-wider uppercase transition-all duration-300 ease-out active:scale-95 md:text-base'
-          >
-            VER MÁS
-          </a>
+          <Button href='#servicios'>VER MÁS</Button>
         </div>
       </div>
 
@@ -155,23 +152,10 @@ export default function Hero() {
       </button> */}
       <button
         onClick={manejarClickSiguiente}
-        className='hover:bg-primary group absolute top-1/2 right-6 z-30 hidden size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/30 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-transparent active:scale-90 md:flex'
+        className='hover:bg-primary group absolute top-1/2 right-6 z-30 hidden size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:border-transparent active:scale-90 md:flex'
         aria-label='Imagen de fondo siguiente'
       >
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          strokeWidth={2.5}
-          stroke='currentColor'
-          className='size-5 transition-transform duration-300 group-hover:translate-x-0.5'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            d='M8.25 4.5l7.5 7.5-7.5 7.5'
-          />
-        </svg>
+        <ChevronRight />
       </button>
 
       {/* Indicadores circulares (Puntos inferiores de navegación del fondo) */}
