@@ -13,6 +13,10 @@ import Linkedin from '@/icons/linkedin'
 import Tiktok from '@/icons/tiktok'
 import { LINKS, SEO } from '@/constants'
 
+interface Props {
+  pathname: string
+}
+
 // Lista de enlaces a redes sociales mapeados desde constantes globales
 const socialLinks = [
   { href: SEO.facebook.href, label: SEO.facebook.label, icon: Facebook },
@@ -20,17 +24,20 @@ const socialLinks = [
   { href: SEO.linkedin.href, label: SEO.linkedin.label, icon: Linkedin },
   { href: SEO.tiktok.href, label: SEO.tiktok.label, icon: Tiktok },
 ]
-
 const navLinks = [
   { href: LINKS.home.href, label: LINKS.home.label, icon: Home },
   { href: LINKS.services.href, label: LINKS.services.label, icon: Services },
-  { href: LINKS.autoparts_accessories.href, label: LINKS.autoparts_accessories.label, icon: CarParts },
+  {
+    href: LINKS.autoparts_accessories.href,
+    label: LINKS.autoparts_accessories.label,
+    icon: CarParts,
+  },
   { href: LINKS.batteries.href, label: LINKS.batteries.label, icon: Battery },
   { href: LINKS.company.href, label: LINKS.company.label, icon: Company },
   { href: LINKS.contact.href, label: LINKS.contact.label, icon: Contact },
 ]
 
-export default function MobileMenu() {
+export default function MobileMenu({ pathname }: Props) {
   // Estado para controlar la apertura y el cierre del panel del menú lateral
   const [isOpen, setIsOpen] = useState(false)
 
@@ -48,7 +55,9 @@ export default function MobileMenu() {
       {/* Overlay de fondo oscuro difuminado. Controla la visibilidad y transición de opacidad */}
       <div
         className={`fixed inset-0 z-50 min-h-screen bg-black/50 backdrop-blur-xs transition-opacity duration-300 ${
-          isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          isOpen
+            ? 'pointer-events-auto opacity-100'
+            : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setIsOpen(false)}
       />
@@ -83,15 +92,35 @@ export default function MobileMenu() {
         <nav className='flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-6 uppercase'>
           {navLinks.map(link => {
             const Icon = link.icon
+
+            const isActive =
+              link.href === '/'
+                ? pathname === '/'
+                : pathname.startsWith(link.href)
+
             return (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className='group hover:text-primary flex items-center gap-3.5 rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 hover:bg-neutral-300/40'
+                className={`group flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+                  isActive
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-base-content/75 hover:text-primary hover:bg-neutral-300/40'
+                }`}
               >
-                <Icon className='size-5 transition-transform duration-200' />
-                <span>{link.label}</span>
+                <Icon
+                  className={`size-5 transition-transform duration-300 group-hover:scale-110 ${
+                    isActive ? 'text-primary scale-110' : 'text-base-content/60'
+                  }`}
+                />
+                <span
+                  className={`transition-transform duration-300 ${
+                    isActive ? 'translate-x-0.5' : 'group-hover:translate-x-0.5'
+                  }`}
+                >
+                  {link.label}
+                </span>
               </a>
             )
           })}

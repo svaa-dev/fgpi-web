@@ -1,4 +1,8 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+} from 'react'
 
 // Propiedades base comunes para ambas variantes del componente
 interface PropiedadesBase {
@@ -18,7 +22,7 @@ type PropiedadesBotonNativo = PropiedadesBase &
   }
 
 // Tipo unión que combina ambas variantes posibles
-export type ButtonProps = PropiedadesEnlace | PropiedadesBotonNativo
+export type Props = PropiedadesEnlace | PropiedadesBotonNativo
 
 /**
  * Componente Button
@@ -27,7 +31,7 @@ export type ButtonProps = PropiedadesEnlace | PropiedadesBotonNativo
  * de lo contrario renderiza una etiqueta <button>.
  * No incluye diseño visual, solo la estructura lógica y el tipado.
  */
-export default function Button(props: ButtonProps) {
+export default function Button(props: Props) {
   // Verificamos si la propiedad 'href' existe en las props
   if ('href' in props) {
     // Aplicamos casting explícito a PropiedadesEnlace para evitar que TypeScript
