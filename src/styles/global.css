@@ -14,8 +14,13 @@
   --color-base-200: #e9e9e9;
   --color-base-300: #cccccc;
   --color-base-content: #18181b;
+
   --color-primary: #ab1923;
   --color-primary-content: #ffffff;
+}
+
+html {
+  @apply scrollbar-thumb-primary scrollbar-track-base-200 scrollbar-thin overflow-y-scroll;
 }
 
 body {
