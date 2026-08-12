@@ -10,10 +10,10 @@ import { LINKS, SEO } from '@/constants'
 
 // Enlaces de redes sociales mapeados con componentes de iconos e hipervínculos desde constantes globales
 const socialLinks = [
-  { href: SEO.facebook.href, label: 'Facebook', icon: Facebook },
-  { href: SEO.instagram.href, label: 'Instagram', icon: Instagram },
-  { href: SEO.linkedin.href, label: 'LinkedIn', icon: Linkedin },
-  { href: SEO.tiktok.href, label: 'TikTok', icon: Tiktok },
+  { href: SEO.socials.facebook.href, label: 'Facebook', icon: Facebook },
+  { href: SEO.socials.instagram.href, label: 'Instagram', icon: Instagram },
+  { href: SEO.socials.linkedin.href, label: 'LinkedIn', icon: Linkedin },
+  { href: SEO.socials.tiktok.href, label: 'TikTok', icon: Tiktok },
 ]
 
 const navLinks = [
@@ -78,17 +78,17 @@ const { pathname } = Astro.url
     </nav>
 
     <!-- Enlaces a Redes Sociales (Desktop/Tablet) -->
-    <div class='hidden items-center gap-x-4 sm:flex'>
+    <div class='hidden items-center gap-x-2.5 sm:flex'>
       {
         socialLinks.map(link => (
           <a
             href={link.href}
             target='_blank'
             rel='noopener noreferrer'
-            class='text-base-content/60 hover:text-primary flex items-center justify-center transition-colors duration-200'
+            class='flex items-center justify-center transition-all duration-300'
             aria-label={link.label}
           >
-            <link.icon className='size-7' />
+            <link.icon className='size-8 hover:scale-110 transition-transform' />
           </a>
         ))
       }

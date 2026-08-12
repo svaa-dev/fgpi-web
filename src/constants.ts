@@ -8,10 +8,24 @@ export const SEO = {
   email: '',
   phone: '',
   address: '',
-  facebook: { href: '#', label: 'Facebook' },
-  instagram: { href: '#', label: 'Instagram' },
-  linkedin: { href: '#', label: 'LinkedIn' },
-  tiktok: { href: '#', label: 'TikTok' },
+  socials: {
+    facebook: {
+      href: 'https://web.facebook.com/share/p/1CcVRdPnVu/',
+      label: 'Facebook',
+    },
+    instagram: {
+      href: 'https://www.instagram.com/forteglassperuimport?igsh=Y3Q0ajRzM3Q1dGRu&utm_source=qr',
+      label: 'Instagram',
+    },
+    linkedin: {
+      href: 'https://www.linkedin.com/in/forte-glass-peru-import-21556239a',
+      label: 'LinkedIn',
+    },
+    tiktok: {
+      href: 'https://www.tiktok.com/@forteglassperuimport?_r=1&_t=ZS-91gQimLANmM',
+      label: 'TikTok',
+    },
+  },
 } as const
 
 /**

@@ -19,10 +19,26 @@ interface Props {
 
 // Lista de enlaces a redes sociales mapeados desde constantes globales
 const socialLinks = [
-  { href: SEO.facebook.href, label: SEO.facebook.label, icon: Facebook },
-  { href: SEO.instagram.href, label: SEO.instagram.label, icon: Instagram },
-  { href: SEO.linkedin.href, label: SEO.linkedin.label, icon: Linkedin },
-  { href: SEO.tiktok.href, label: SEO.tiktok.label, icon: Tiktok },
+  {
+    href: SEO.socials.facebook.href,
+    label: SEO.socials.facebook.label,
+    icon: Facebook,
+  },
+  {
+    href: SEO.socials.instagram.href,
+    label: SEO.socials.instagram.label,
+    icon: Instagram,
+  },
+  {
+    href: SEO.socials.linkedin.href,
+    label: SEO.socials.linkedin.label,
+    icon: Linkedin,
+  },
+  {
+    href: SEO.socials.tiktok.href,
+    label: SEO.socials.tiktok.label,
+    icon: Tiktok,
+  },
 ]
 const navLinks = [
   { href: LINKS.home.href, label: LINKS.home.label, icon: Home },
