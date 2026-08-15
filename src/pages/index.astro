@@ -1,11 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import Hero from '@/sections/hero'
-import FeaturedProducts from '@/sections/FeaturedProducts.astro'
-import AutopartsAccessories from '@/sections/AutopartsAccessories.astro'
+import Hero from '@/components/sections/hero'
+import FeaturedProducts from '@/components/sections/FeaturedProducts.astro'
+import AutopartsAccessories from '@/components/sections/AutopartsAccessories.astro'
+import { LINKS } from '@/constants'
 ---
 
-<Layout>
+<Layout title={LINKS.home.label}>
   <Hero client:load />
   <FeaturedProducts />
   <AutopartsAccessories />

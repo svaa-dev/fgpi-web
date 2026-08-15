@@ -20,7 +20,7 @@
 }
 
 html {
-  @apply scrollbar-thumb-primary scrollbar-track-base-200 scrollbar-thin overflow-y-scroll;
+  @apply scrollbar-thumb-primary scrollbar-track-base-200 scrollbar-thin overflow-y-scroll scroll-smooth;
 }
 
 body {
@@ -29,4 +29,28 @@ body {
 
 @utility wrapper {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility legal {
+  @apply bg-base-100 mx-auto max-w-3xl px-12 py-12;
+
+  h2 {
+    @apply scroll-mt-20 text-xl font-bold md:text-2xl;
+  }
+
+  p {
+    @apply py-4 text-justify text-sm leading-8 text-neutral-500 md:text-base;
+  }
+
+  p + h2 {
+    @apply pt-6;
+  }
+
+  li {
+    @apply list-inside list-disc text-neutral-700;
+  }
+
+  strong {
+    @apply font-bold text-neutral-700;
+  }
 }

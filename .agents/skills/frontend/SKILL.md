@@ -22,3 +22,5 @@ description: Skills para el desarrollo general del frontend del proyecto
 - Evita código genérico de IA.
 
 - Diseño responsivo adaptado a dispositivos moviles, tablet y desktop.
+
+- Código refactorizado

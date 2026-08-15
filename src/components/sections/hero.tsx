@@ -3,7 +3,7 @@ import HeroCars from '@/images/hero-cars.jpg'
 import HeroBrands from '@/images/hero-brands.png'
 import HeroWindshield from '@/images/hero-windshield.jpg'
 import ChevronRight from '@/icons/chevron-right'
-import Button from '@/ui/button'
+import Button from '@/components/ui/button'
 
 export default function Hero() {
   // Lista de imágenes de fondo importadas

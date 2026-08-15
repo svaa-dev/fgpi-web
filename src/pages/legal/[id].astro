@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { GetStaticPaths } from 'astro'
+import { getCollection, render } from 'astro:content'
+
+export const getStaticPaths = (async () => {
+  const legal = await getCollection('legal')
+  return legal.map(entry => ({
+    params: { id: entry.id },
+    props: { entry },
+  }))
+}) satisfies GetStaticPaths
+
+// const { id } = Astro.params
+const { entry } = Astro.props
+const { title } = entry.data
+const { Content } = await render(entry)
+---
+
+<Layout title={title}>
+  <article class='legal'>
+    <Content />
+  </article>
+</Layout>

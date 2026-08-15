@@ -24,6 +24,7 @@ interface FooterLink {
 
 interface FooterSection {
   title: string
+  href: string
   links: FooterLink[]
 }
 
@@ -31,92 +32,136 @@ interface FooterSection {
 const footerSections: FooterSection[] = [
   {
     title: 'Cambios y devoluciones',
+    href: '/legal/cambios-devoluciones',
     links: [
       {
         label: 'Condiciones para devoluciones',
-        href: '/cambios-devoluciones#condiciones',
+        href: '/legal/cambios-devoluciones#condiciones',
       },
-      { label: 'Proceso de devolución', href: '/cambios-devoluciones#proceso' },
-      { label: 'Reembolsos', href: '/cambios-devoluciones#reembolsos' },
+      {
+        label: 'Proceso de devolución',
+        href: '/legal/cambios-devoluciones#proceso',
+      },
+      {
+        label: 'Reembolsos',
+        href: '/legal/cambios-devoluciones#reembolsos',
+      },
       {
         label: 'Cambios y cancelaciones',
-        href: '/cambios-devoluciones#cambios-cancelaciones',
+        href: '/legal/cambios-devoluciones#cancelaciones',
       },
     ],
   },
   {
     title: 'Libro de Reclamaciones',
+    href: '/legal/libro-de-reclamaciones',
     links: [
       {
         label: 'Identificación del Consumidor',
-        href: '/libro-de-reclamaciones#identificacion',
+        href: '/legal/libro-de-reclamaciones#identificacion',
       },
-      { label: 'Detalle de Reclamo', href: '/libro-de-reclamaciones#detalle' },
-      { label: 'Orden del Consumidor', href: '/libro-de-reclamaciones#orden' },
+      {
+        label: 'Detalle de Reclamo',
+        href: '/legal/libro-de-reclamaciones#detalle',
+      },
+      {
+        label: 'Orden del Consumidor',
+        href: '/legal/libro-de-reclamaciones#orden',
+      },
     ],
   },
   {
     title: 'Términos y condiciones',
+    href: '/legal/terminos-condiciones',
     links: [
-      { label: 'Uso del sitio web', href: '/terminos-condiciones#uso-sitio' },
-      { label: 'Cuentas de usuario', href: '/terminos-condiciones#cuentas' },
+      {
+        label: 'Uso del sitio web',
+        href: '/legal/terminos-condiciones#uso-sitio',
+      },
+      {
+        label: 'Cuentas de usuario',
+        href: '/legal/terminos-condiciones#cuentas',
+      },
       {
         label: 'Proceso de compra',
-        href: '/terminos-condiciones#proceso-compra',
+        href: '/legal/terminos-condiciones#proceso-compra',
       },
       {
         label: 'Propiedad intelectual',
-        href: '/terminos-condiciones#propiedad-intelectual',
+        href: '/legal/terminos-condiciones#propiedad-intelectual',
       },
       {
         label: 'Limitación de responsabilidad',
-        href: '/terminos-condiciones#limitacion',
+        href: '/legal/terminos-condiciones#limitacion',
       },
-      { label: 'Ley aplicable', href: '/terminos-condiciones#ley-aplicable' },
+      {
+        label: 'Ley aplicable',
+        href: '/legal/terminos-condiciones#ley-aplicable',
+      },
       {
         label: 'Cambios en los términos',
-        href: '/terminos-condiciones#cambios-terminos',
+        href: '/legal/terminos-condiciones#cambios-terminos',
       },
     ],
   },
   {
     title: 'Políticas de privacidad',
+    href: '/legal/politicas-privacidad',
     links: [
       {
         label: 'Información recopilada',
-        href: '/politicas-privacidad#informacion',
+        href: '/legal/politicas-privacidad#informacion',
       },
       {
         label: 'Uso de la información',
-        href: '/politicas-privacidad#uso-informacion',
+        href: '/legal/politicas-privacidad#uso-informacion',
       },
       {
         label: 'Compartir información con terceros',
-        href: '/politicas-privacidad#compartir',
+        href: '/legal/politicas-privacidad#compartir',
       },
-      { label: 'Seguridad', href: '/politicas-privacidad#seguridad' },
+      {
+        label: 'Seguridad',
+        href: '/legal/politicas-privacidad#seguridad',
+      },
       {
         label: 'Cookies y tecnologías de seguimiento',
-        href: '/politicas-privacidad#cookies',
+        href: '/legal/politicas-privacidad#cookies',
       },
       {
         label: 'Cambios en la política de privacidad',
-        href: '/politicas-privacidad#cambios-politica',
+        href: '/legal/politicas-privacidad#cambios-politica',
       },
-      { label: 'Contacto', href: '/contacto' },
+      {
+        label: 'Contacto',
+        href: '/legal/contacto',
+      },
     ],
   },
   {
     title: 'Políticas de envío',
+    href: '/legal/politicas-envio',
     links: [
       {
         label: 'Política de envíos / Lima metropolitana y callao',
-        href: '/politicas-envio#lima-callao',
+        href: '/legal/politicas-envio#lima-callao',
       },
-      { label: 'Áreas de cobertura', href: '/politicas-envio#cobertura' },
-      { label: 'Costos de envío', href: '/politicas-envio#costos' },
-      { label: 'Tiempo de Entrega', href: '/politicas-envio#tiempo' },
-      { label: 'Proceso de envío', href: '/politicas-envio#proceso-envio' },
+      {
+        label: 'Áreas de cobertura',
+        href: '/legal/politicas-envio#cobertura',
+      },
+      {
+        label: 'Costos de envío',
+        href: '/legal/politicas-envio#costos',
+      },
+      {
+        label: 'Tiempo de Entrega',
+        href: '/legal/politicas-envio#tiempo',
+      },
+      {
+        label: 'Proceso de envío',
+        href: '/legal/politicas-envio#proceso-envio',
+      },
     ],
   },
 ]
@@ -182,7 +227,7 @@ const footerSections: FooterSection[] = [
                   {isReclamaciones && (
                     <li class='pt-3'>
                       <a
-                        href='/libro-de-reclamaciones'
+                        href='/legal/libro-de-reclamaciones'
                         class='inline-block transform text-white/80 transition-all duration-300 hover:scale-102 hover:text-white active:scale-98'
                         aria-label='Ir al Libro de Reclamaciones'
                       >
@@ -195,9 +240,12 @@ const footerSections: FooterSection[] = [
 
               {/* Vista Desktop - Grid clásico y limpio sin colapsar */}
               <div class='hidden lg:block'>
-                <h3 class='mb-5 text-[15px] font-bold tracking-wide text-white uppercase opacity-95 select-none'>
+                <a
+                  href={section.href}
+                  class='mb-5 block text-[15px] font-bold tracking-wide text-white uppercase opacity-95 transition-all duration-200 select-none hover:translate-x-1'
+                >
                   {section.title}
-                </h3>
+                </a>
                 <ul class='space-y-3'>
                   {section.links.map(link => (
                     <li>
@@ -213,7 +261,7 @@ const footerSections: FooterSection[] = [
                 {isReclamaciones && (
                   <div class='mt-6'>
                     <a
-                      href='/libro-de-reclamaciones'
+                      href='/legal/libro-de-reclamaciones'
                       class='inline-block transform text-white/70 transition-all duration-300 hover:scale-105 hover:text-white active:scale-98'
                       aria-label='Ir al Libro de Reclamaciones'
                     >
