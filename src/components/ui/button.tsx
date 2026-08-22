@@ -48,7 +48,7 @@ export default function Button(props: Props) {
     }
     return (
       <a
-        className='bg-primary inline-block cursor-pointer rounded-lg px-6 py-2 text-sm font-bold transition-all duration-300 hover:brightness-80 md:text-base'
+        className='bg-primary text-primary-content inline-block cursor-pointer rounded-lg px-6 py-2 text-sm font-bold transition-all duration-300 hover:brightness-80 md:text-base'
         {...rest}
       >
         {children}
@@ -61,7 +61,7 @@ export default function Button(props: Props) {
   const { children, type = 'button', ...rest } = props as PropiedadesBotonNativo
   return (
     <button
-      className='bg-primary inline-block cursor-pointer rounded-lg px-6 py-2 text-sm font-bold transition-all duration-300 hover:brightness-80 md:text-base'
+      className='bg-primary text-primary-content inline-block cursor-pointer rounded-lg px-6 py-2 text-sm font-bold transition-all duration-300 hover:brightness-80 md:text-base'
       type={type}
       {...rest}
     >

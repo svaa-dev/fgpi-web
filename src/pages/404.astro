@@ -1,0 +1,34 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Button from '@/components/ui/button'
+---
+
+<Layout title='Página no encontrada'>
+  <main
+    class='bg-base-200 flex min-h-[calc(100vh-16rem)] flex-col items-center justify-center px-4 text-center'
+  >
+    <div class='space-y-6'>
+      <h1
+        class='text-primary/90 text-8xl font-black tracking-tighter md:text-9xl'
+      >
+        404
+      </h1>
+
+      <div class='space-y-2'>
+        <h2
+          class='text-base-content text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl'
+        >
+          Oops! Página no encontrada
+        </h2>
+        <p class='text-base-content/70 mx-auto max-w-md md:text-lg'>
+          La página que estás buscando podría haber sido eliminada, haber
+          cambiado de nombre o estar temporalmente no disponible.
+        </p>
+      </div>
+
+      <div class='pt-4'>
+        <Button href='/'> Volver al inicio </Button>
+      </div>
+    </div>
+  </main>
+</Layout>

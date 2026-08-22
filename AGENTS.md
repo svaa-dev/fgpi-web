@@ -1,6 +1,5 @@
 ## Reglas
 
-- Siempre genera una planificación previa.
 - Escribe los comentarios del código en español.
 
 ## Documentación
